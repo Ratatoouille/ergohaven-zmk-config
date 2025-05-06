@@ -14,6 +14,15 @@
         };
     };
 
+    macros {
+        terminal: terminal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(T))>;
+            label = "TERMINAL";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -30,9 +39,9 @@
 
         Navigation {
             bindings = <
-&kp GRAVE  &trans  &trans          &kp UP_ARROW    &trans           &trans                     &kp PG_UP        &kp N7        &kp N8        &kp N9        &kp N0  &trans
+&kp GRAVE  &trans  &kp HOME        &kp UP_ARROW    &kp END          &kp DEL                    &kp PG_UP        &kp N7        &kp N8        &kp N9        &kp N0  &trans
 &trans     &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                     &kp PAGE_DOWN    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
-&trans     &trans  &kp HOME        &kp CAPSLOCK    &kp END          &kp DEL                    &kp PRINTSCREEN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+&trans     &trans  &trans          &kp CAPSLOCK    &trans           &trans                     &kp PRINTSCREEN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
                    &trans          &trans          &trans           &trans   &trans    &trans  &mo 3            &trans        &trans        &trans
             >;
 
@@ -52,10 +61,10 @@
 
         Adjust {
             bindings = <
-&bootloader  &none  &kp F1  &kp F2   &kp F3   &kp F4                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&none        &none  &kp F5  &kp F6   &kp F7   &kp F8                   &out OUT_BLE  &kp C_VOL_DN  &kp K_MUTE        &kp C_VOL_UP  &none         &studio_unlock
-&none        &none  &kp F9  &kp F10  &kp F11  &kp F12                  &out OUT_USB  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &none         &none
-                    &none   &none    &none    &none    &none    &none  &none         &none         &none             &none
+&bootloader  &none  &kp F1  &kp F2   &kp F3   &terminal                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&none        &none  &kp F5  &kp F6   &kp F7   &kp F8                     &out OUT_BLE  &kp C_VOL_DN  &kp K_MUTE        &kp C_VOL_UP  &none         &studio_unlock
+&none        &none  &kp F9  &kp F10  &kp F11  &kp F12                    &out OUT_USB  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &none         &none
+                    &none   &none    &none    &none      &none    &none  &none         &none         &none             &none
             >;
 
             label = "Adjust";

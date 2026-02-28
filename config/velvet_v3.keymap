@@ -20,6 +20,12 @@
             key-positions = <4>;
             layers = <3>;
         };
+
+        mb3 {
+            bindings = <&hold_mo_tap_mkp 1 MB3>;
+            key-positions = <28 29>;
+            layers = <1>;
+        };
     };
 
     macros {
@@ -28,6 +34,19 @@
             #binding-cells = <0>;
             bindings = <&kp LA(LC(T))>;
             label = "TERMINAL";
+        };
+    };
+
+    behaviors {
+        hold_mo_tap_mkp: hold_mo_tap_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_MO_TAP_MKP";
+            bindings = <&mo>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-while-undecided;
+            hold-while-undecided-linger;
         };
     };
 
@@ -47,10 +66,10 @@
 
         nav {
             bindings = <
-&kp GRAVE  &trans  &kp HOME        &kp UP_ARROW    &kp END          &kp DEL                          &kp PG_UP        &kp N7        &kp N8        &kp N9        &kp N0  &trans
-&trans     &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp BACKSPACE                    &kp PAGE_DOWN    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
-&trans     &trans  &trans          &kp CAPSLOCK    &mkp MB1         &mkp MB2                         &kp PRINTSCREEN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
-                   &trans          &trans          &trans           &trans         &trans    &trans  &mo 3            &trans        &trans        &trans
+&kp GRAVE  &trans  &kp HOME        &kp UP_ARROW    &kp END          &kp DEL                                   &kp PG_UP        &kp N7        &kp N8        &kp N9        &kp N0  &trans
+&trans     &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp BACKSPACE                             &kp PAGE_DOWN    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
+&trans     &trans  &trans          &kp CAPSLOCK    &mkp MB1         &hold_mo_tap_mkp 1 MB2                    &kp PRINTSCREEN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+                   &trans          &trans          &trans           &trans                  &trans    &trans  &mo 3            &trans        &trans        &trans
             >;
 
             display-name = "Nav";
@@ -76,50 +95,6 @@
             >;
 
             display-name = "Adjust";
-        };
-
-        User0 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "User0";
-        };
-
-        User1 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "User1";
-        };
-
-        User2 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "User2";
-        };
-
-        User3 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "User3";
         };
     };
 };
